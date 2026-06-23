@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bible Reader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: rgb(126, 175, 238);
+      padding: 20px;
+    }
+    #bookContent {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      max-height: 600px;
+      overflow-y: scroll;
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h2>Read New Testament</h2>
+  <select id="bookSelect">
+    <option value="Matthew.txt">Matthew</option>
+    <option value="Mark.txt">Mark</option>
+    <option value="Luke.txt">Luke</option>
+    <option value="John.txt">John</option>
+    <!-- add all books -->
+  </select>
+  <button onclick="loadBook()">Load Book</button>
+
+  <!-- Display area -->
+  <pre id="bookContent"></pre>
+
+  <script>
+    function loadBook() {
+      const book = document.getElementById("bookSelect").value;
+      fetch("archive/" + book)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("bookContent").textContent = data;
+        })
+        .catch(err => console.error("Error loading book:", err));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - API.Bible</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        .logo::before {
+            content: "📖";
+            margin-right: 8px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            color: #0d6efd;
+        }
+
+        /* Main Layout */
+        .main {
+            display: flex;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            color: #0d6efd;
+            font-weight: 500;
+        }
+
+        .content {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 30px 0 15px 0;
+        }
+
+        .content p {
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .highlight {
+  background-color: blue; /* highlight effect */
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+
+        /* Table of Contents */
+        .toc {
+            width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .toc h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .toc a:hover,
+        .toc a.active {
+            color: #0d6efd;
+            font-weight: 500;
+        }
+
+        /* Footer Navigation */
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: #0d6efd;
+            font-weight: 500;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .toc ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+  display: block;
+}
+
+.toc ul li a.active {
+  font-weight: bold;
+  color: #007BFF; /* blue highlight */
+  background-color: #f0f0f0; /* light background */
+  border-radius: 4px;
+}
+
+    </style>
+
+
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">API.Bible</div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="#">Documentation</a>
+                </nav>
+                <div class="nav">
+                    <a href="email.html">Apps</a>
+                    <a href="email.html">Settings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Welcome</h3>
+                <ul>
+                    <li><a href="#" class="active">Overview</a></li>
+                    <li><a href="#">Common Questions</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Feature Requests</a></li>
+                </ul>
+                <h3 style="margin-top: 30px;">Getting Started</h3>
+                <ul>
+                    <li><a href="#">Application Process</a></li>
+                    <li><a href="#">Register as a Developer</a></li>
+                    <li><a href="#">Create Your App</a></li>
+                    <li><a href="#">Call the API</a></li>
+                    <li><a href="#">Handling Errors</a></li>
+                    <li><a href="#">Rate Limiting</a></li>
+                    <li><a href="#">Record Views</a></li>
+                    <li><a href="#">Versioning</a></li>
+                    <li><a href="#">Authentication</a></li>
+                </ul>
+                <h3 style="margin-top: 30px;">Documentation</h3>
+                <ul>
+                    <li><a href="#">Bibles</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Chapters</a></li>
+                    <li><a href="#">Passages</a></li>
+                </ul>
+            </aside>
+
+            <!-- Content -->
+            <main class="content">
+                <h1>Welcome</h1>
+                <p>Welcome to the developer hub and documentation for API.Bible!</p>
+
+                <h2 id='abs'>Who is ABS?</h2>
+                <p>American Bible Society (ABS) works with a global network of partners to reach the unreached and help all people engage. We're passionate about making the Bible available to every person in a language and in a format anyone can understand and afford, so all people may experience its life-changing message.</p>
+
+                <h2 id='why'>Why use our API?</h2>
+                <p>With nearly 1500 Bible versions available across over 1000 languages, API.Bible offers the largest collection of Bibles available.</p>
+
+                <h2 id='multiple'>Multiple Bibles in one unified format</h2>
+                <p>Access multiple versions all with unified formatting. We've covered proprietary text formats so you can focus on building your app, not text conversions.</p>
+
+                <h2 id='search'>Search the Bible</h2>
+                <p>Search the Bible for any reference or keyword directly from your site or app. Our API makes it easy to integrate search functionality so users can find what they're looking for quickly.</p>
+
+                <h2 id='dbl'>Digital Bible Library Integration</h2>
+                <p>If you're a Digital Bible Library card holder, you can now use your DBL licenses directly within API.Bible.</p>
+
+                <h2 id='nodev'>Not a Developer ??</h2>
+                <p>Each tool is developed with ease of use in mind. We make it easy and non-technical to get started. Learn how to bring the Bible to your audience with our BibleSearch Tools.</p>
+
+                <h2 id='help'>We're here to help</h2>
+                <p>The Scripture API is continuously being worked on and used by people and organizations all around the world. We read our forums daily and respond to questions and troubleshooting issues with you. If you want immediate help, you can also submit a ticket request for quicker responses.</p>
+
+                <!-- Footer Navigation -->
+                <div class="footer-nav">
+                    <a href="index.html">← Previous</a>
+                </div>
+            </main>
+
+            <!-- Table of Contents -->
+          <aside class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+   <li><a href="#" data-target="abs">Who is ABS?</a></li>
+<li><a href="#" data-target="why">Why use our API?</a></li>
+<li><a href="#" data-target="multiple">Multiple Bibles in one unified format</a></li>
+<li><a href="#" data-target="search">Search the Bible</a></li>
+<li><a href="#" data-target="dbl">Digital Bible Library Integration</a></li>
+<li><a href="#" data-target="nodev">Not a Developer ??</a></li>
+<li><a href="#" data-target="help">We're here to help</a></li>
+
+  </ul>
+</aside>
+
+
+
+        </div>
+    </div>
+
+
+
+   <script>
+
+     document.addEventListener("DOMContentLoaded", function() {
+     document.querySelectorAll('.toc ul li a').forEach(link => {
+     link.addEventListener('click', function(e) {
+     e.preventDefault(); // stop scrolling
+      
+      // remove highlight from all sections
+      document.querySelectorAll('.content h2, .content p').forEach(el => {
+        el.classList.remove('highlight');
+      });
+
+      // get target id from data-target
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.classList.add('highlight');
+      }
+    });
+  });
+});
+
+</script>
+
+</body>II
+</html>

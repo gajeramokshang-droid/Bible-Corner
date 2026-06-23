@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API.Bible</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+         .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+          .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        .logo::before {
+            content: "📖";
+            margin-right: 8px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            color: #0d6efd;
+        }
+
+        
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #0d6efd;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: 2px solid #0d6efd;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #0d6efd;
+            border: 2px solid #0d6efd;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .book-illustration {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .book {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .book:first-child {
+            left: 0;
+            background: linear-gradient(to right, #a8d8f0, #7cc7e8);
+            transform: perspective(1000px) rotateY(-20deg);
+        }
+
+        .book:last-child {
+            right: 0;
+            background: linear-gradient(to right, #7cc7e8, #5badcb);
+            transform: perspective(1000px) rotateY(20deg);
+        }
+
+        .book-spine {
+            position: absolute;
+            width: 20px;
+            height: 250px;
+            background: linear-gradient(to bottom, #5badcb, #3a8bc8);
+            left: 90px;
+            top: 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Trusted By Section */
+        .trusted-by {
+            padding: 40px 0;
+            text-align: center;
+            background-color: white;
+        }
+
+        .trusted-by p {
+            color: #6c757d;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 80px;
+            opacity: 1.0;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover {
+            opacity: 1;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #a8d8f0, #7cc7e8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* Special Card */
+        .special-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 1px solid #dee2e6;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .special-card h3 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+
+        .special-card p {
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .special-card .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+     <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">API.Bible</div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="viesdoc.html">Documentation</a>
+                </nav>
+                <div class="nav">
+                    <a href="email.html">Apps</a>
+                    <a href="email.html">Settings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Build the Bible into your Life.</h1>
+                    <p>With nearly 2500 Bible versions available across over 1600 languages, API.Bible offers the largest collection of Bibles available.</p>
+                    <div class="hero-buttons">
+                        <a href="viesdoc.html" class="btn btn-primary">View the docs</a>
+                        <a href="bible.html" class="btn btn-secondary">Get started</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="book-illustration">
+                        <div class="book">
+                            <div class="book-spine"></div>
+                        </div>
+                        <div class="book" style="right: 0;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <p>Trusted by:</p>
+           <div class="logos">
+
+    <div class="logo-items">
+        <img src="biblesociety.png" alt="Indian Bible Society Logo" class="logo">
+        <p style="font-weight:bold">Indian Bible Society</p>
+    </div>
+
+    <div class="logo-item">
+        <img src="biblesearch.jpg" alt="BibleSearch Logo" class="logo">
+        <p>BibleSearch</p>
+    </div>
+
+    <div class="logo-item">
+        <img src="journey.webp" alt="JourneyMaker Logo" class="logo">
+        <p>JourneyMaker</p>
+    </div>
+
+    <div class="logo-item">
+        <img src="bibleminde.png" alt="BibleMinde Logo" class="logo">
+        <p>BibleMinde</p>
+    </div>
+    
+</div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Everything you need from the Bible in one discoverable place.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Multiple Bibles in one unified format</h3>
+                    <p>Access multiple versions all with unified formatting. We've covered proprietary text formats so you can focus on building your app, not text conversions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Search the Bible</h3>
+                    <p>Search the Bible for any reference or keyword directly from your site or app. Our API makes it easy to integrate search functionality so users can find what they're looking for quickly.</p>
+                </div>
+                <div class="special-card">
+                    <div style="font-size: 3rem; color: #a8d8f0; margin-bottom: 20px;">📱</div>
+                    <h3>Digital Bible Library Integration</h3>
+                    <p>If you're a Digital Bible Library card holder, you can now use your DBL licenses directly within API.Bible.</p>
+                    <a href="#" class="btn btn-primary">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
